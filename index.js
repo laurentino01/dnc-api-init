@@ -7,7 +7,6 @@ const swaggerUi = require("swagger-ui-express");
 const routes = require("./src/routes.js");
 const swaggerOptions = { customCssUrl: "swagger-ui.css" };
 
-const usersRouter = require("./src/routes/users");
 const authDocPod = require("./src/middlewares/authDocPod.js");
 
 const app = express();

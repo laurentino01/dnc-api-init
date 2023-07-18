@@ -1,0 +1,60 @@
+name: Pipeline de Produção
+env:
+  NODE_ENV: production
+  VERCEL_ORG_ID: $({secrets.VERCEL_ORG_ID})
+  VERCEL_PROJECT_ID: $({secrets.VERCEL_PROJECT_ID})
+
+jobs:
+  job1:
+    nome: CI - Build e Criação de Artefato
+    runs-on: ubunto-latest
+    steps:
+      - name: Pegar Codigo do repositório
+        uses: actions/checkout@v3
+
+      - name: Instalar pacotes do npm
+        run: npm install
+
+      - name: Gerar swagger.json
+        run: npm run autoDoc
+
+      - name: Apagar pasta node_modules
+        run: rm -rf node_modules
+
+      - name: Apagar pasta .git
+        run: rm -rf .git
+
+      - name: Mostrar arquivos e pastas
+        run: ls
+
+      - name: Criar ZIP do código buildado
+        uses: actions/upload-artifact@v3
+        with:
+          name: artefato
+          retention-days: 1
+          path: ./
+
+  job2:
+    name: CD - Deploy na Vercel
+    needs: job1
+    truns-on: ubunto-latest
+    steps:
+      - name: Baixar artefato do código buildado
+        use: actions/download-artifact@v3
+        with:
+          name: artefato
+
+      - name: Instalar pacotes npm
+        run: bpm install
+
+      - name: Mostrar arquivos e pastas
+        run: ls
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
