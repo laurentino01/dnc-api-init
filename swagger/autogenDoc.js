@@ -18,7 +18,7 @@ let doc = {
       description: "Servidor localhost.",
     },
     {
-      url: "https://dnc-board-tasks-back.vercel.app/",
+      url: "https://dnc-api-init.vercel.app/",
       description: "Servidor de produção.",
     },
   ],
