@@ -10,7 +10,7 @@ const authDocProd = async (req, res, next) => {
   }
 
   if (senhaDoc) {
-    res.status(401).set("content-type", "text/html");
+    res.status(401).set("Content-Type", "text/html");
     res.send(
       Buffer.from(`
     <form method="post">
@@ -24,7 +24,7 @@ const authDocProd = async (req, res, next) => {
     `)
     );
   } else {
-    res.status(200).set("content-type", "text/html");
+    res.status(200).set("Content-Type", "text/html");
     res.send(
       Buffer.from(`
     <form method="post">
