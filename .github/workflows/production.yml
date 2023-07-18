@@ -50,7 +50,7 @@ jobs:
           name: artefato
 
       - name: Instalar pacotes npm
-        run: bpm install
+        run: npm install
 
       - name: Mostrar arquivos e pastas
         run: ls
