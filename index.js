@@ -6,8 +6,7 @@ const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const routes = require("./src/routes.js");
 const swaggerOptions = {
-  customCssUrl: "/public/swagger-ui.css",
-  customSiteTitle: "The Words That I Know API - Swagger",
+  customCssUrl: "/swagger-ui.css",
 };
 
 const authDocProd = require("./src/middlewares/authDocProd.js");
@@ -28,12 +27,12 @@ if (process.env.NODE_ENV !== "test") {
   app.get("/", (req, res) => {
     /* #swagger.ignore = true */ res.redirect("/doc");
   });
-  /*  app.use(
+  app.use(
     "/doc",
-    authDocProd,
+    /*  authDocProd, */
     swaggerUi.serve,
     swaggerUi.setup(swaggerFile, swaggerOptions)
-  ); */
+  );
 }
 
 routes(app);
