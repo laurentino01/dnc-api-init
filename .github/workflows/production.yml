@@ -10,7 +10,7 @@ jobs:
     runs-on: ubunto-latest
     steps:
       - name: Pegar Codigo do repositório
-        use: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Instalar pacotes do npm
         run: npm install
@@ -40,7 +40,7 @@ jobs:
     truns-on: ubunto-latest
     steps:
       - name: Baixar artefato do código buildado
-        use: actions/download-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: artefato
 
