@@ -6,7 +6,7 @@ const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const routes = require("./src/routes.js");
 const swaggerOptions = {
-  customCssUrl: "public/swagger-ui.css",
+  customCssUrl: "/swagger-ui.css",
 };
 
 const authDocProd = require("./src/middlewares/authDocProd.js");
@@ -20,7 +20,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "./public")));
 
 if (process.env.NODE_ENV !== "test") {
   const swaggerFile = require("./swagger/swagger_output.json");
@@ -31,7 +31,7 @@ if (process.env.NODE_ENV !== "test") {
     "/doc",
     authDocProd,
     swaggerUi.serve,
-    swaggerUi.setup(swaggerFile /* , swaggerOptions */)
+    swaggerUi.setup(swaggerFile, swaggerOptions)
   );
 }
 
