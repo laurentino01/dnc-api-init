@@ -5,7 +5,10 @@ const logger = require("morgan");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const routes = require("./src/routes.js");
-const swaggerOptions = { customCssUrl: "./public/swagger-ui.css" };
+const swaggerOptions = {
+  customCssUrl: "/public/swagger-ui.css",
+  customSiteTitle: "The Words That I Know API - Swagger",
+};
 
 const authDocProd = require("./src/middlewares/authDocProd.js");
 
