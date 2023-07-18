@@ -1,7 +1,7 @@
 const authDocProd = async (req, res, next) => {
   const { senhaDoc } = req.body;
 
-  if (req.headers.host.includes("localhost") || req.originUrl !== "/doc/") {
+  if (req.headers.host.includes("localhost") || req.originUrl !== "/doc") {
     return next();
   }
 
@@ -14,13 +14,13 @@ const authDocProd = async (req, res, next) => {
     res.send(
       Buffer.from(`
     <form method="post">
-    <p style="color:red ">Senha inválida</p>
-    <label for="senhaDoc">
-        Senha: 
-        <input type="password" name="senhaDoc" id="senhaDoc">
-        <input type="submit" value="Entrar">
-    </label>
-</form>
+      <p style="color:red ">Senha inválida</p>
+      <label for="senhaDoc">
+          Senha: 
+          <input type="password" name="senhaDoc" id="senhaDoc">
+          <input type="submit" value="Entrar">
+      </label>
+    </form>
     `)
     );
   } else {
@@ -28,12 +28,12 @@ const authDocProd = async (req, res, next) => {
     res.send(
       Buffer.from(`
     <form method="post">
-    <label for="senhaDoc">
-        Senha: 
-        <input type="password" name="senhaDoc" id="senhaDoc">
-        <input type="submit" value="Entrar">
-    </label>
-</form>
+      <label for="senhaDoc">
+          Senha: 
+          <input type="password" name="senhaDoc" id="senhaDoc">
+          <input type="submit" value="Entrar">
+      </label>
+    </form>
     `)
     );
   }
