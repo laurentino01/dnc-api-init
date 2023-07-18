@@ -6,7 +6,7 @@ env:
 
 jobs:
   job1:
-    nome: CI - Build e Criação de Artefato
+    name: CI - Build e Criação de Artefato
     runs-on: ubunto-latest
     steps:
       - name: Pegar Codigo do repositório
