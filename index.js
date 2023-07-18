@@ -6,7 +6,7 @@ const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const routes = require("./src/routes.js");
 const swaggerOptions = {
-  customCss: "/swagger-ui.css",
+  customCssUrl: "public/swagger-ui.css",
 };
 
 const authDocProd = require("./src/middlewares/authDocProd.js");
@@ -30,8 +30,8 @@ if (process.env.NODE_ENV !== "test") {
   app.use(
     "/doc",
     authDocProd,
-    swaggerUi.serve
-    /* swaggerUi.setup(swaggerFile, swaggerOptions) */
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerFile, swaggerOptions)
   );
 }
 
