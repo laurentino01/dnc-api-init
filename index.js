@@ -31,7 +31,7 @@ if (process.env.NODE_ENV !== "test") {
     "/doc",
     authDocProd,
     swaggerUi.serve,
-    swaggerUi.setup(swaggerFile, swaggerOptions)
+    swaggerUi.setup(swaggerFile /* , swaggerOptions */)
   );
 }
 
