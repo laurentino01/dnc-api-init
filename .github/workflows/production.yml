@@ -10,7 +10,7 @@ jobs:
     runs-on: ubunto-latest
     steps:
       - name: Pegar Codigo do repositório
-        uses: actions/checkout@v3
+        use: actions/checkout@v3
 
       - name: Instalar pacotes do npm
         run: npm install
