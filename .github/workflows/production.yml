@@ -7,7 +7,7 @@ env:
 jobs:
   job1:
     name: CI - Build e Criação de Artefato
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Pegar Codigo do repositório
         uses: actions/checkout@v3
@@ -37,7 +37,7 @@ jobs:
   job2:
     name: CD - Deploy na Vercel
     needs: job1
-    truns-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Baixar artefato do código buildado
         uses: actions/download-artifact@v3
