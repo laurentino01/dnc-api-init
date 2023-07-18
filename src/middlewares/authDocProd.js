@@ -1,4 +1,4 @@
-const authDocPod = async (req, res, next) => {
+const authDocProd = async (req, res, next) => {
   const { senhaDoc } = req.body;
 
   if (req.headers.host.includes("localhost") || req.originUrl !== "/doc/") {
@@ -39,4 +39,4 @@ const authDocPod = async (req, res, next) => {
   }
 };
 
-module.exports = authDocPod;
+module.exports = authDocProd;
