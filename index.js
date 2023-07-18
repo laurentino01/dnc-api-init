@@ -8,6 +8,7 @@ const routes = require("./src/routes.js");
 const swaggerOptions = { customCssUrl: "swagger-ui.css" };
 
 const usersRouter = require("./src/routes/users");
+const authDocPod = require("./src/middlewares/authDocPod.js");
 
 const app = express();
 
@@ -27,6 +28,7 @@ if (process.env.NODE_ENV !== "test") {
   });
   app.use(
     "/doc",
+    authDocPod,
     swaggerUi.serve,
     swaggerUi.setup(swaggerFile, swaggerOptions)
   );
