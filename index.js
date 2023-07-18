@@ -28,12 +28,12 @@ if (process.env.NODE_ENV !== "test") {
   app.get("/", (req, res) => {
     /* #swagger.ignore = true */ res.redirect("/doc");
   });
-  app.use(
+  /*  app.use(
     "/doc",
     authDocProd,
     swaggerUi.serve,
     swaggerUi.setup(swaggerFile, swaggerOptions)
-  );
+  ); */
 }
 
 routes(app);
