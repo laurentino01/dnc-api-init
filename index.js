@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 if (process.env.NODE_ENV !== "test") {
   const swaggerFile = require("./swagger/swagger_output.json");
   app.get("/", (req, res) => {
-    /* swaggerFilev.ignore = true */ res.redirect("/doc");
+    /* #swagger.ignore = true */ res.redirect("/doc");
   });
   app.use(
     "/doc",
