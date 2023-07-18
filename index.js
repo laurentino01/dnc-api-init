@@ -29,9 +29,9 @@ if (process.env.NODE_ENV !== "test") {
   });
   app.use(
     "/doc",
-    authDocProd
-    /* swaggerUi.serve,
-    swaggerUi.setup(swaggerFile, swaggerOptions) */
+    authDocProd,
+    swaggerUi.serve
+    /* swaggerUi.setup(swaggerFile, swaggerOptions) */
   );
 }
 
