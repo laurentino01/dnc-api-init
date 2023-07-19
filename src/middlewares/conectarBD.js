@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/* const mongoose = require('mongoose');
 const tratarErrosEsperados = require('../functions/tratarErrosEsperados');
 
 async function conectarBancoDados(req = null, res = null, next = null) {
@@ -14,4 +14,4 @@ async function conectarBancoDados(req = null, res = null, next = null) {
   }
 }
 
-module.exports = conectarBancoDados;
+module.exports = conectarBancoDados; */

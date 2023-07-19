@@ -1,4 +1,4 @@
-const express = require('express');
+/* const express = require('express');
 const tratarErrosEsperados = require('../functions/tratarErrosEsperados');
 const conectarBancoDados = require('../middlewares/conectarBD');
 const bcrypt = require('bcrypt');
@@ -64,3 +64,4 @@ router.post('/logar', conectarBancoDados, async function (req, res) {
 
 
 module.exports = router;
+ */
