@@ -23,14 +23,15 @@ app.use(express.static(path.join(__dirname, "./public")));
 if (process.env.NODE_ENV !== "test") {
   const swaggerFile = require("./swagger/swagger_output.json");
   app.get("/", (req, res) => {
-    /* #swagger.ignore = true */ res.redirect("/doc");
+    res.send("ola"); /*  res.redirect("/doc"); */
+    /* #swagger.ignore = true */
   });
-  app.use(
+  /*  app.use(
     "/doc",
     authDocProd,
     swaggerUi.serve,
     swaggerUi.setup(swaggerFile, swaggerOptions)
-  );
+  ); */
 }
 
 routes(app);
