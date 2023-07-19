@@ -7,7 +7,7 @@ env:
 on:
   push:
     branches:
-      - main
+      - secundaria
 
 jobs:
   job1:
@@ -22,6 +22,9 @@ jobs:
 
       - name: Gerar swagger.json
         run: npm run autoDoc
+
+      - name: Apagar pasta node_modules
+        run: rm -rf node_modules
 
       - name: Apagar pasta .git
         run: rm -rf .git
