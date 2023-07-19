@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-const esquema = new mongoose.Schema(
+const schema = new mongoose.Schema(
   {
     nome: {
       type: String,
-      required: "é obrigatório!",
+      required: "obrigatório",
     },
     email: {
       type: String,
@@ -31,6 +31,5 @@ const esquema = new mongoose.Schema(
   }
 );
 
-const EsquemaUsuario =
-  mongoose.models.Usuario || mongoose.model("Usuario", esquema);
-module.exports = EsquemaUsuario;
+const userSchema = mongoose.models.User || mongoose.model("User", schema);
+module.exports = userSchema;
