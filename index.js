@@ -4,13 +4,10 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
-const routes = require("./src/routes.js");
 const swaggerOptions = { customCssUrl: "/swagger-ui.css" };
-
+const routes = require("./src/routes.js");
 const authDocProd = require("./src/middlewares/authDocProd.js");
-
 const app = express();
-
 require("dotenv").config();
 
 app.use(cors());
