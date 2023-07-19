@@ -39,10 +39,3 @@ if (process.env.NODE_ENV !== "test") {
 }
 
 module.exports = app;
-
-/*  "builds": [
-    {
-      "src": "index.js",
-      "use": "@vercel/node"
-    }
-  ], */
