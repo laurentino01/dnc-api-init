@@ -39,3 +39,6 @@ if (process.env.NODE_ENV !== "test") {
 }
 
 module.exports = app;
+
+/* - name: Apagar pasta node_modules
+run: rm -rf node_modules */
