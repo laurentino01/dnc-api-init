@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const esquema = new mongoose.Schema(
+const schema = new mongoose.Schema(
   {
     posicao: {
       type: Number,
@@ -24,7 +24,7 @@ const esquema = new mongoose.Schema(
     },
     usuarioCriador: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Usuario",
+      ref: "User",
       required: "é obrigatório!",
     },
   },
@@ -33,6 +33,5 @@ const esquema = new mongoose.Schema(
   }
 );
 
-const EsquemaTarefa =
-  mongoose.models.Tarefa || mongoose.model("Tarefa", esquema);
-module.exports = EsquemaTarefa;
+const taskSchema = mongoose.models.Task || mongoose.model("Task", schema);
+module.exports = taskSchema;
