@@ -2,7 +2,7 @@ const errorHandler = require("../functions/errorHandler");
 const jwt = require("jsonwebtoken");
 
 const authUser = (req, res, next) => {
-  const token = req.headers("x-auth-token");
+  const token = req.header("x-auth-token");
 
   if (!token) {
     errorHandler(res, new Error("Token não fornecido!"));
