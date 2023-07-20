@@ -1,23 +1,22 @@
-const jwt = require('jsonwebtoken');
-const tratarErrosEsperados = require('../functions/tratarErrosEsperados');
+const errorHandler = require("../functions/errorHandler");
+const jwt = require("jsonwebtoken");
 
-async function authUser(req, res, next) {
-    const token = req.headers['x-auth-token'];
+const authUser = (req, res, next) => {
+  const token = req.headers("x-auth-token");
 
-    if (!token) {
-        return tratarErrosEsperados(res, new Error("Token de autenticação não fornecido"));
-    }
+  if (!token) {
+    errorHandler(res, new Error("Token não fornecido!"));
+  }
 
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  try {
+    const decoded = jwt.decode(token, process.env.JWT_SECRET);
 
-        req.usuarioJwt = decoded;
+    req.userJwt = decoded;
 
-        next();
-    } catch (error) {
-        console.error(error);
-        return tratarErrosEsperados(res, new Error("Token de autenticação inválido"));
-    }
-}
+    next();
+  } catch (error) {
+    errorHandler(res, new Error("Token inválido!"));
+  }
+};
 
 module.exports = authUser;
